@@ -33,7 +33,7 @@ void SetupHardware()
 }
 
 int  main(void)
-3 {		
+ {		
 		uint8_t temp; 								//Tempt char used for UART
 		char ctemp; 									// Temp 8-bit int used for gpio functions
     volatile uint32_t ui32Loop;		// 32-bit int used for multiple func. 

@@ -440,6 +440,41 @@
               <FileType>5</FileType>
               <FilePath>.\myPWM.h</FilePath>
             </File>
+            <File>
+              <FileName>alarm_clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\alarm_clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>Clickbutton.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Clickbutton.c</FilePath>
+            </File>
+            <File>
+              <FileName>ClickButton.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ClickButton.h</FilePath>
+            </File>
+            <File>
+              <FileName>sRTCsec.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\sRTCsec.c</FilePath>
+            </File>
+            <File>
+              <FileName>sRTCsec.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\sRTCsec.h</FilePath>
+            </File>
+            <File>
+              <FileName>TM1637.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TM1637.c</FilePath>
+            </File>
+            <File>
+              <FileName>TM1637.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TM1637.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
