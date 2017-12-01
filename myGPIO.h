@@ -11,4 +11,4 @@
 #include "driverlib/uart.h"
 
 void setup_IO();
-void GPIOfunction(uint32_t ui32Loop,uint8_t temp);
+void pinReadAndWrite(void);

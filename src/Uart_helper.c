@@ -8,7 +8,6 @@
 // 8 bit word length, no parity bits, one stop bit, 
 // Input: none
 // Output: none
-
 void UartSetup()
 {
 		SysCtlPeripheralEnable(SYSCTL_PERIPH_UART0);		// Enable the UART0 module.

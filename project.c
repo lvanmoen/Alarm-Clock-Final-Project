@@ -1,21 +1,6 @@
-//*******************************************************************************************
-//* Name: Lidia Van Moen and Lauryn Jeffrey                            
-//* Date: 10/06/2017
-//*	Class: Embedded Systems Lab
-//* Prof: Chase
-//* Lab Description: This is my midterm project. I was supposed to get GPIO, Systick Timer,
-//*                  UART, ADC, NVIC and PWM to work. So I did. 
-//*									 You can find the specifics on the ".c" files of each type. 
-//*                  This main file was designed to set up my hardware, make my User input 
-//*									 work and to make flipping through my code simple, so that anyone can see 
-//*									 how successful my project was. 
-//*Hardware Description: TIVA C Series LaunchPad. TMC123G micro
-//*******************************************************************************************
-
 #include "project.h"
 #include <stdio.h>
 #include <stdint.h>
-#include <time.h> //for sleep() function
 
 #ifdef DEBUG
 
@@ -25,65 +10,76 @@ __error__(char *pcFilename, uint32_t ui32Line)
 }
 #endif
 
-void SetupHardware()
+//Function Protoypes
+void mainMenu(char ctemp,uint8_t temp,uint32_t ui32Loop);  //Main menu that displays to the UART terminal for a HMI
+void SetupHardware(void);  //Function that sets up all of the pins,ports, etc... that are used in the program
+
+//Main Code
+int  main(void)
+{		
+	//Variables
+	char ctemp; //Temp char used for UART
+	uint8_t temp;	//Temp 8-bit int used for gpio functions
+	volatile uint32_t ui32Loop; //32-bit int used for multiple functions 
+	
+	SetupHardware();
+	mainMenu(ctemp, temp, ui32Loop);
+}	
+	
+//Main menu that displays to the UART terminal for a HMI	
+void mainMenu(char ctemp,uint8_t temp,uint32_t ui32Loop)
+{	
+	pinReadAndWrite();
+	int hour1 =0;
+	int hour2 =1;
+	int min1=0;
+	int min2=0;
+	int i;
+	
+while (1)
 {
-	UartSetup();				// Setting up UART so I can use it
-	setup_IO();		      // Function that unlocks certain pins that are needed.
-	SetupSystick();			// Setting up the Systick
-	SetupADC();					// Setting up ADC so I can use it
+	
+	
+	printf("The time is %d %d : %d %d\n\n",hour1,hour2,min1,min2);
+//	printhours1(hours1);
+//	printhours2(hours2);
+//	printmin1(min1);
+//	printmin2(min2);
+	
+	
+	min2 = min2+1;
+	SysTickWait10msDN(1200);
+	if (min2>9){
+		min2=0;
+		min1++;
+	}
+	if (min1 > 5){
+		min1=0;
+		hour2++;
+	}
+	if (hour2 >9){
+		hour2=0;
+		hour1++;
+	}
+	if (hour1 == 1 && hour2 == 3){
+		min1=0;
+		min2=0;
+		hour2=1;
+		hour1=0;
+	}
+}
 }
 
- 
-int main()
+		void SetupHardware(void)  
 {
-		uint8_t temp; 								//Tempt char used for UART
-		char ctemp; 									// Temp 8-bit int used for gpio functions
-    volatile uint32_t ui32Loop;		// 32-bit int used for multiple func. 
-   
-    SetupHardware();							//Calling the function to set up all the things.
-	 
-		int i = 1;										// I intialize this i so that I can infinitely loop through this code until I don't wanna
-	 
-		while (i==1){
-			printf("What feature would you like to test?\n Enter a 1 to test UART \n Enter a 2 to test Systick \n");
-			printf(" Enter a 3 to check GPIO \n Enter a 4 to check ADC \n Enter a 5 to Check NVIC \n Enter a 6 to Check PWM");
-			ctemp = getc(stdin);			//	This will store the user's input so that I can use it in my case statement.
-			printf("%c\n", ctemp);  
-	
-		// This is a fancy switch statement so that you can check each part of my code
-		// Individually without having to go through each section every time you wanna check
-		// Something out!
-		switch (ctemp)
-			{
-			case '1':
-					printf("\n You entered %c, We are testing UART\n\n", ctemp);
-				  UARTfunction(ctemp);
-				break;			
-			case '2':
-					printf("\n You entered %c, We are testing Systick\n\n", ctemp);
-					SysTickWait(50);
-				break;	
-			case '3':
-					printf("\n You entered %c, We are testing GPIO\n\n", ctemp);
-					GPIOfunction(ui32Loop,ctemp);
-				break;	
-			case '4':
-					printf("\n You entered %c, We are testing ADC\n\n", ctemp);
-				  ADCfunction();
-				break;	
-			case '5':
-					printf("\n You entered %c, We are testing NVIC\n", ctemp);
-					printf("I got N O T H I N G, except maybe I might use NVIC in my Systick .....\n\n");
-				break;	
-			case '6':
-					printf("\n You entered %c, We are testing PWM\n\n", ctemp);
-					PulseWidthModulation(ctemp);
-					break;	
-			default:
-					printf("\n The value you entered wasn't an option. Try again.\n\n");
-					break;
-			
-				}
 
-			}
-		}
+	UartSetup();	//Sets up Uart communication using RealTerm
+	setup_IO();		//Function that unlocks certain pins that are needed.
+	SetupSystickDN();	//Sets up the timers and hardware to use systick
+	SetupADC();	//Hardware setup for ADC	
+}
+
+
+
+
+

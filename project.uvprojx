@@ -386,29 +386,14 @@
               <FilePath>.\project.c</FilePath>
             </File>
             <File>
+              <FileName>startup_rvmdk.S</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\startup_rvmdk.S</FilePath>
+            </File>
+            <File>
               <FileName>project.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\project.h</FilePath>
-            </File>
-            <File>
-              <FileName>myUART.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\myUART.c</FilePath>
-            </File>
-            <File>
-              <FileName>myUART.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\myUART.h</FilePath>
-            </File>
-            <File>
-              <FileName>HAL_Systick.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\HAL_Systick.c</FilePath>
-            </File>
-            <File>
-              <FileName>HAL_Systick.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\HAL_Systick.h</FilePath>
             </File>
             <File>
               <FileName>myGPIO.c</FileName>
@@ -421,14 +406,24 @@
               <FilePath>.\myGPIO.h</FilePath>
             </File>
             <File>
-              <FileName>HAL_ADC.c</FileName>
+              <FileName>HAL_Systick.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\HAL_ADC.c</FilePath>
+              <FilePath>.\HAL_Systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>HAL_Systick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\HAL_Systick.h</FilePath>
             </File>
             <File>
               <FileName>HAL_ADC.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\HAL_ADC.h</FilePath>
+            </File>
+            <File>
+              <FileName>HAL_ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HAL_ADC.c</FilePath>
             </File>
             <File>
               <FileName>myPWM.c</FileName>
@@ -439,6 +434,11 @@
               <FileName>myPWM.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\myPWM.h</FilePath>
+            </File>
+            <File>
+              <FileName>SevenSegs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SevenSegs.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -465,11 +465,6 @@
         <Group>
           <GroupName>src</GroupName>
           <Files>
-            <File>
-              <FileName>startup_rvmdk.S</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\startup_rvmdk.S</FilePath>
-            </File>
             <File>
               <FileName>Uart_helper.c</FileName>
               <FileType>1</FileType>

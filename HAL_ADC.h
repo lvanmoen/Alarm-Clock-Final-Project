@@ -1,3 +1,4 @@
+
 #include <stdbool.h>
 #include <stdint.h>
 #include "sysctl.h"
@@ -13,5 +14,5 @@
 extern uint32_t ADC_Values[13];
 
 void SetupADC(void);
-void ADCfunction(void);  
+void ADCReadChan(void);  
 
