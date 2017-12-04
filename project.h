@@ -61,4 +61,5 @@
 #include "HAL_Systick.h"
 #include "HAL_ADC.h"
 #include "myPWM.h"
+#include "SevenSegs.h"
 
