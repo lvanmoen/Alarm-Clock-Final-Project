@@ -41,10 +41,11 @@ while (1)
 	
 	
 	printf("The time is %d %d : %d %d\n\n",hour1,hour2,min1,min2);
-//	printhours1(hours1);
-//	printhours2(hours2);
-//	printmin1(min1);
-//	printmin2(min2);
+	
+	printhours1(hour1);
+	printhours2(hour2);
+	printmin1(min1);
+	printmin2(min2);
 	
 	
 	min2 = min2+1;
