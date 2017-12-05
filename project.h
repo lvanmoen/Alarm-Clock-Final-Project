@@ -54,12 +54,10 @@
 #include "hw_types.h"
 
 #include "src/Uart_helper.h"
-#include "LED.h"
 #include "myGPIO.h"
 
 //#include "Systick_helper.h"
 #include "HAL_Systick.h"
-#include "HAL_ADC.h"
 #include "myPWM.h"
 #include "SevenSegs.h"
 

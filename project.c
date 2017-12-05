@@ -55,10 +55,12 @@ while (1)
 	printmin2(min2);
 	
 	//CheckStatus(hour1, hour2, min2, min1, alarmhour1, alarmhour2, alarmmin1, alarmmin2);
+	//AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
+	
+	
 	
 	// This is the main clock function, so basically, this is the
 	// part of the code that is keeping track of the time. 
-	
 	min2 = min2+1;
 	SysTickWait10msDN(1200);
 	if (min2>9){
@@ -90,9 +92,9 @@ while (1)
 {
 
 	UartSetup();	//Sets up Uart communication using RealTerm
-	setup_IO();		//Function that unlocks certain pins that are needed.
+	//setup_IO();		//Function that unlocks certain pins that are needed.
 	SetupSystickDN();	//Sets up the timers and hardware to use systick
-	SetupADC();	//Hardware setup for ADC	
+
 }
 
 

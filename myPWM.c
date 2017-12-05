@@ -48,49 +48,60 @@ void delayMS(int ms)
     SysCtlDelay((SysCtlClockGet()/(3*1000))*ms);
 }
 
-void pwmTest(void)
+void AlarmBuzzGo(int alarmhours1, int alarmhours2, int alarmmins1, int alarmmins2)
 {	
 	//Fade
   bool fadeUp = true;
   unsigned long increment = 10; //Long increment
   unsigned long pwmNow = 100;	//new PWM value
 	int i = 1; //Int used in while loop
-	int x;  //Int that contains the output of the button SW2
-	int y;  //Int that contains the output of the button SW1
+	int SWOFF;  //Int that contains the output of the button SW2
+	int SWSNOOZE;  //Int that contains the output of the button SW1
 	volatile int flashTime = 10; //Long that controls the speed of the flashing
 	
-	printf("Press SW1 to speed up flashing of LED\nPress SW2 to slow down flashing of LED\n"); 
-	printf("Press both SW1 and SW2 to exit PWM\n\n");
 	
   while(i == 1)
   {	
-		x = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_0); // set x equal to the output of button SW2 
-		y = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4); // set y equal to the output of button SW1
+		SWSNOOZE = GPIOPinRead(GPIO_PORTB_BASE, GPIO_PIN_7);  // Set SWSNOOZE eual to the output of the button hooked up to PB7
+		SWOFF = GPIOPinRead(GPIO_PORTB_BASE, GPIO_PIN_6); 		// Set SWOFF equal to the output of the button hooked up to PB6
 		
-		//if loop that checks if SW1 is pressed, if it is pressed, increment will be incremented, which speeds up flashing.
-		if(y == 0) 
-		{
-			if(flashTime < 320) //If loop that checks if flash time is bigger than the period.
-			flashTime++;	
-		}
 		
-		//if loop that checks if SW2 is pressed, if it is pressed, increment will be decremented, which slows down flashing.
-		else if(x == 0)
-		{
-			if(flashTime > 10) //If loop that checks if flash time is smaller than 10, weird crap happens after flashtime < 10.
-			flashTime--;
-		}
-		
-		//will exit PWM when both SW1 and SW2 are pressed
-			if ( x == 0)
-		 {
-			 if (y == 0)
+			 if (SWOFF == 0)
 			 {
 					i = 0;
 				 PWMOutputState(PWM1_BASE, PWM_OUT_6_BIT, false); //Disable ports for PWM so ports can be used for other modules.
 				 GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2); // Re-enable pin 2 on portf for GPIO usage on other modules.
 			 }
-		 }
+
+			 if (SWSNOOZE == 0)
+			 {
+					i = 0;
+				 
+				alarmmins2=alarmmins2+9;
+				 
+				if (alarmmins2>9){
+						alarmmins2=0;
+						alarmmins1++;
+					}
+				if (alarmmins1 > 5){
+					alarmmins1=0;
+					alarmhours2++;
+				}
+				if (alarmhours2 >9){
+					alarmhours2=0;
+					alarmhours1++;
+					}
+				if (alarmhours1 == 1 && alarmhours2 == 3){
+					alarmmins1=0;
+					alarmmins2=0;
+					alarmhours2=1;
+					alarmhours1=0;
+				}
+				
+				 PWMOutputState(PWM1_BASE, PWM_OUT_6_BIT, false); //Disable ports for PWM so ports can be used for other modules.
+				 GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2); // Re-enable pin 2 on portf for GPIO usage on other modules.
+			 }
+
 		
 		delayMS(20); //delay
 		 
