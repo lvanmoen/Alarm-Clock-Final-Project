@@ -146,7 +146,7 @@ void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmho
 									alarmhours2=1;
 									alarmhours1=0;
 								
-									alarmspm = alarmspm&&1;
+									alarmspm = alarmspm||1;
 									if(alarmspm==1){
 										pmindicatoron();
 									}

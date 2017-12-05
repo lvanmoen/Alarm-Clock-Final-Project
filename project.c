@@ -74,7 +74,7 @@ int  main(void)
 					hour2=1;
 					hour1=0;
 					
-					pm = pm&&0;
+					pm = pm||0;
 					if(pm==1){
 						pmindicatoron();
 					}
@@ -88,9 +88,7 @@ int  main(void)
 						AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
 					}
 		
-			
-//					pm=0;
-//					pmindicatoroff();
+		
 					
 		}
 }
