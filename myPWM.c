@@ -66,6 +66,27 @@ void AlarmBuzzGo(int alarmhours1, int alarmhours2, int alarmmins1, int alarmmins
 		SWOFF = GPIOPinRead(GPIO_PORTB_BASE, GPIO_PIN_6); 		// Set SWOFF equal to the output of the button hooked up to PB6
 		
 		
+		delayMS(20); //delay
+		 
+    if (fadeUp) //check if fadeUp is true
+		{
+			pwmNow += increment; //add the value of increment to pwmNow
+      if (pwmNow >= 320) 
+			{ 
+				fadeUp = false; 
+			}
+    }
+    else 
+		{
+			pwmNow -= increment; //subtract the value of increment to pwmNow
+      if (pwmNow <= flashTime) 
+			{ 
+				fadeUp = true;
+			}
+    }        
+			PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6,pwmNow);  //Set the pulse width to the new value, pwmNow.      
+    }	
+		
 			 if (SWOFF == 0)
 			 {
 					i = 0;
@@ -73,11 +94,13 @@ void AlarmBuzzGo(int alarmhours1, int alarmhours2, int alarmmins1, int alarmmins
 				 GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2); // Re-enable pin 2 on portf for GPIO usage on other modules.
 			 }
 
+			 // yes my snooze is only for a minute get over it. 
+			 // you are going to be late to work if you keep snoozing the damn alarm
 			 if (SWSNOOZE == 0)
 			 {
 					i = 0;
 				 
-				alarmmins2=alarmmins2+9;
+				alarmmins2=alarmmins2+1;
 				 
 				if (alarmmins2>9){
 						alarmmins2=0;
@@ -102,25 +125,4 @@ void AlarmBuzzGo(int alarmhours1, int alarmhours2, int alarmmins1, int alarmmins
 				 GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2); // Re-enable pin 2 on portf for GPIO usage on other modules.
 			 }
 
-		
-		delayMS(20); //delay
-		 
-    if (fadeUp) //check if fadeUp is true
-		{
-			pwmNow += increment; //add the value of increment to pwmNow
-      if (pwmNow >= 320) 
-			{ 
-				fadeUp = false; 
-			}
-    }
-    else 
-		{
-			pwmNow -= increment; //subtract the value of increment to pwmNow
-      if (pwmNow <= flashTime) 
-			{ 
-				fadeUp = true;
-			}
-    }        
-			PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6,pwmNow);  //Set the pulse width to the new value, pwmNow.      
-    }	
 }

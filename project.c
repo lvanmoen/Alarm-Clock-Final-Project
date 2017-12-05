@@ -23,12 +23,7 @@ int  main(void)
 	volatile uint32_t ui32Loop; //32-bit int used for multiple functions 
 	
 	SetupHardware();
-	mainMenu(ctemp, temp, ui32Loop);
-}	
-	
-//Main menu that displays to the UART terminal for a HMI	
-void mainMenu(char ctemp,uint8_t temp,uint32_t ui32Loop)
-{	
+
 	int hour1 =0;
 	int hour2 =1;
 	int min1=0;
@@ -41,60 +36,57 @@ void mainMenu(char ctemp,uint8_t temp,uint32_t ui32Loop)
 	
 	int i;
 	
-while (1)
-{
+		while (1)
+			{
+				printf("The time is %d %d : %d %d\n\n",hour1,hour2,min1,min2);
 	
+				// I am calling the functions that will set the seven segment displays to the correct 
+				// outputs so it looks like we have a clock. 
+				printhours1(hour1);
+				printhours2(hour2);
+				printmin1(min1);
+				printmin2(min2);
 	
-	printf("The time is %d %d : %d %d\n\n",hour1,hour2,min1,min2);
+				CheckStatus(hour1, hour2, min2, min1, alarmhour1, alarmhour2, alarmmin1, alarmmin2);
+
+				// This is the main clock function, so basically, this is the
+				// part of the code that is keeping track of the time. 
+				min2 = min2+1;
+				SysTickWait10msDN(1200);
+					
+				if (min2>9){
+					min2=0;
+					min1++;
+					}
+				if (min1 > 5){
+					min1=0;
+					hour2++;
+					}
+				if (hour2 >9){
+					hour2=0;
+					hour1++;
+					}
+				if (hour1 == 1 && hour2 == 3){
+					min1=0;
+					min2=0;
+					hour2=1;
+					hour1=0;
+					}
+				if(hour1==alarmhour1 && hour2 == alarmhour2 && min1==alarmmin1 && alarmmin2==min2)
+					{
+						AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
+					}
 	
-	// I am calling the functions that will set the seven segment displays to the correct 
-	// outputs so it looks like we have a clock. 
-	printhours1(hour1);
-	printhours2(hour2);
-	printmin1(min1);
-	printmin2(min2);
-	
-	//CheckStatus(hour1, hour2, min2, min1, alarmhour1, alarmhour2, alarmmin1, alarmmin2);
-	//AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
-	
-	
-	
-	// This is the main clock function, so basically, this is the
-	// part of the code that is keeping track of the time. 
-	min2 = min2+1;
-	SysTickWait10msDN(1200);
-	if (min2>9){
-		min2=0;
-		min1++;
-	}
-	if (min1 > 5){
-		min1=0;
-		hour2++;
-	}
-	if (hour2 >9){
-		hour2=0;
-		hour1++;
-	}
-	if (hour1 == 1 && hour2 == 3){
-		min1=0;
-		min2=0;
-		hour2=1;
-		hour1=0;
-	}
-	if(alarmhour1 == hour1 && alarmhour2 == hour2 && alarmmin1 == min1 && alarmmin2 == min2)
-	{
-		//CSAlarm(alarmmin1,alarmmin2,alarmhour1,alarmhour2);
-	}
-}
+		}
 }
 
-		void SetupHardware(void)  
+void SetupHardware(void)  
 {
-
 	UartSetup();	//Sets up Uart communication using RealTerm
-	//setup_IO();		//Function that unlocks certain pins that are needed.
+	setup_IO();		//Function that unlocks certain pins that are needed.
 	SetupSystickDN();	//Sets up the timers and hardware to use systick
-
+	setupPWM();
+	
 }
 
 
