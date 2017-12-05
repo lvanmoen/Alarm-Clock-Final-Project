@@ -62,7 +62,7 @@ void AlarmBuzzGo(int alarmhours1, int alarmhours2, int alarmmins1, int alarmmins
 	
   while(i == 1)
   {	
-		SWSNOOZE = GPIOPinRead(GPIO_PORTB_BASE, GPIO_PIN_7);  // Set SWSNOOZE eual to the output of the button hooked up to PB7
+		SWSNOOZE = GPIOPinRead(GPIO_PORTB_BASE, GPIO_PIN_7);  // Set SWSNOOZE equal to the output of the button hooked up to PB7
 		SWOFF = GPIOPinRead(GPIO_PORTB_BASE, GPIO_PIN_6); 		// Set SWOFF equal to the output of the button hooked up to PB6
 		
 		
@@ -94,7 +94,7 @@ void AlarmBuzzGo(int alarmhours1, int alarmhours2, int alarmmins1, int alarmmins
 				 GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2); // Re-enable pin 2 on portf for GPIO usage on other modules.
 			 }
 
-			 // yes my snooze is only for a minute get over it. 
+			 // yes my snooze is only for a minute; get over it. 
 			 // you are going to be late to work if you keep snoozing the damn alarm
 			 if (SWSNOOZE == 0)
 			 {

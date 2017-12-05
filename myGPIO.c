@@ -73,7 +73,7 @@ void setup_IO(void)
 	
 }
 
-void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmhours1, int alarmhours2, int alarmmins1, int alarmmins2)
+void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmhours1, int alarmhours2, int alarmmins1, int alarmmins2, int alarmspm)
 {
 		int SW1;  
 		int SW2;  
@@ -135,7 +135,15 @@ void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmho
 									alarmmins2=0;
 									alarmhours2=1;
 									alarmhours1=0;
+								
+									alarmspm = alarmspm&&1;
+									if(alarmspm==1){
+										pmindicatoron();
+									}
+									if(alarmspm ==0){
+										pmindicatoroff();
 									}	
+								}
 		 
 				if (SW2 == 1)
 						{ 	// When my SW2 isn't pressed I don't want anything to happen
@@ -155,7 +163,8 @@ void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmho
 					{ 
 						alarmmins2 = minutes2+1;	
 					}
-			
+
+					
 				if( SW2 == 0 &&  SW1 ==0) 
 					{ 
 						printf("You are now exiting Alarm Mode");
@@ -166,4 +175,12 @@ void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmho
 }
 }
 
+void pmindicatoroff(void)
+{
+	GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);	 // Turn on red LED
+}
 
+void pmindicatoron(void)
+{
+	GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0xF);	 // Turn on red LED
+}

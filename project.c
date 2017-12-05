@@ -34,6 +34,8 @@ int  main(void)
 	int alarmmin1;
 	int alarmmin2;
 	
+	int pm=0;
+	int alarmpm=0;
 	int i;
 	
 		while (1)
@@ -47,7 +49,7 @@ int  main(void)
 				printmin1(min1);
 				printmin2(min2);
 	
-				CheckStatus(hour1, hour2, min2, min1, alarmhour1, alarmhour2, alarmmin1, alarmmin2);
+				CheckStatus(hour1, hour2, min2, min1, alarmhour1, alarmhour2, alarmmin1, alarmmin2,alarmpm);
 
 				// This is the main clock function, so basically, this is the
 				// part of the code that is keeping track of the time. 
@@ -71,12 +73,25 @@ int  main(void)
 					min2=0;
 					hour2=1;
 					hour1=0;
+					
+					pm = pm&&0;
+					if(pm==1){
+						pmindicatoron();
 					}
-				if(hour1==alarmhour1 && hour2 == alarmhour2 && min1==alarmmin1 && alarmmin2==min2)
+					if(pm==0){
+						pmindicatoroff();
+					}	
+					}
+				
+				if(hour1==alarmhour1 && hour2 == alarmhour2 && min1==alarmmin1 && alarmmin2==min2 && alarmpm == pm)
 					{
 						AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
 					}
-	
+		
+			
+//					pm=0;
+//					pmindicatoroff();
+					
 		}
 }
 

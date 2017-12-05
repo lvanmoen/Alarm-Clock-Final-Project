@@ -15,8 +15,8 @@ void printhours1(int ctemp1)
 		break;
 		
 	default:
-		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_0, 0xF);  // Set PB0 Low
-		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_1, 0xF);  // Set PB1 Low
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_0, 0xF);  // Set PB0 High
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_1, 0xF);  // Set PB1 High
 		break;
 	
 	
@@ -49,8 +49,8 @@ void printhours2(int ctemp2)
 		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0x0);  // Set PE4 Low
 	
 		// Turning them off
-		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xF);  // Set PA3 Low
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_2, 0xF);  // Set PE2 Low
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xF);  // Set PA3 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_2, 0xF);  // Set PE2 High
 
 		break;
 
@@ -63,8 +63,8 @@ void printhours2(int ctemp2)
 		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0x0);  // Set PE5 Low
 	
 		//Turning them off
-		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xf);  // Set PA3 Low
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 Low
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xf);  // Set PA3 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 High
 		break;
 	
 	case '4':
@@ -75,9 +75,9 @@ void printhours2(int ctemp2)
 		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_2, 0x0);  // Set PE2 Low
 	
 		//Turning them off
-		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_4, 0xf);  // Set PA4 Low
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 Low
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0xf);  // Set PE5 Low
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_4, 0xf);  // Set PA4 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0xf);  // Set PE5 High
 		break;
 	
 	case '5':
@@ -89,9 +89,8 @@ void printhours2(int ctemp2)
 		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0x0);  // Set PE5 Low
 	
 		//Turning them off
-		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_5, 0xf);  // Set PA5 Low
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 Low
-	
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_5, 0xf);  // Set PA5 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 High	
 		break;
 
 	case '6':
@@ -104,7 +103,7 @@ void printhours2(int ctemp2)
 		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0x0);  // Set PE5 Low
 	
 		//Turning them Off
-		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xf);  // Set PA3 Low
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xf);  // Set PA3 High
 	
 		break;
 
@@ -115,10 +114,10 @@ void printhours2(int ctemp2)
 		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_2, 0x0);  // Set PE2 Low
 	
 		//Turning them off
-		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xf);  // Set PA3 Low
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, 0xf);  // Set PE1 Low
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 Low
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0xf);  // Set PE5 Low
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xf);  // Set PA3 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, 0xf);  // Set PE1 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0xf);  // Set PE5 High
 		break;
 
 	case '8':
@@ -141,7 +140,7 @@ void printhours2(int ctemp2)
 		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0x0);  // Set PE5 Low
 	
 		//Turning them off
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 Low
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 High
 		break;
 		
 	}
