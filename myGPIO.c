@@ -73,6 +73,16 @@ void setup_IO(void)
 	
 }
 
+void pmindicatoroff(void)
+{
+	GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);	 // Turn on red LED
+}
+
+void pmindicatoron(void)
+{
+	GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0xF);	 // Turn on red LED
+}
+
 void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmhours1, int alarmhours2, int alarmmins1, int alarmmins2, int alarmspm)
 {
 		int SW1;  
@@ -175,12 +185,3 @@ void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmho
 }
 }
 
-void pmindicatoroff(void)
-{
-	GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0x0);	 // Turn on red LED
-}
-
-void pmindicatoron(void)
-{
-	GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0xF);	 // Turn on red LED
-}
