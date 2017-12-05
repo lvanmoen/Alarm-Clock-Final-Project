@@ -10,5 +10,4 @@
 #include "sysctl.h"
 #include "driverlib/uart.h"
 
-void setup_IO();
-void pinReadAndWrite(void);
+void setup_IO(void);
