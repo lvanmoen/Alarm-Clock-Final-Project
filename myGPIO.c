@@ -95,13 +95,13 @@ void setup_IO()
 		GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7, 0xf);  // Set PC7 High
 		
 		//min2 all off
-		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_0, 0x0);  // Set PD0 High
-		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_1, 0x0);  // Set PD1 High
-		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2, 0x0);  // Set PD2 High
-		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_3, 0x0);  // Set PD3 High
-		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_4, 0x0);  // Set PB4 High
-		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_2, 0x0);  // Set PA2 High
-		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, 0x0);  // Set PB5 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_0, 0xf);  // Set PD0 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_1, 0xf);  // Set PD1 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2, 0xf);  // Set PD2 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_3, 0xf);  // Set PD3 High
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_4, 0xf);  // Set PB4 High
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_2, 0xf);  // Set PA2 High
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, 0xf);  // Set PB5 High
 			
 			
 	
