@@ -87,7 +87,6 @@ int  main(void)
 				if(hour1==alarmhour1 && hour2 == alarmhour2 && min1==alarmmin1 && alarmmin2==min2 && alarmpm == pm)
 					{
 						AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
-					}
 		}
 }
 
