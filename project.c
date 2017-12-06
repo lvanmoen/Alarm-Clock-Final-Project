@@ -24,8 +24,8 @@ int  main(void)
 	
 	SetupHardware();
 
-	int hour1 =0;
-	int hour2 =1;
+	int hour1 =1;
+	int hour2 =2;
 	int min1=0;
 	int min2=0;
 
@@ -74,20 +74,19 @@ int  main(void)
 					hour2=1;
 					hour1=0;
 					
-					pm = pm||0;
 					if(pm==1){
 						pmindicatoron();
+						pm=0;
 					}
-					if(pm==0){
+					else{
 						pmindicatoroff();
+						pm=1;
 					}	
 					}
 				
 				if(hour1==alarmhour1 && hour2 == alarmhour2 && min1==alarmmin1 && alarmmin2==min2 && alarmpm == pm)
 					{
 						AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
-					}
-	
 		}
 }
 
@@ -96,7 +95,7 @@ void SetupHardware(void)
 	UartSetup();	//Sets up Uart communication using RealTerm
 	setup_IO();		//Function that unlocks certain pins that are needed.
 	SetupSystickDN();	//Sets up the timers and hardware to use systick
-	setupPWM();
+	//setupPWM();
 	
 }
 

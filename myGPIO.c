@@ -4,7 +4,7 @@
 #include "tm4c123gh6pm.h"	//Header file accesses registers in TMC123 microcontroller
 
 
-void setup_IO(void)
+void setup_IO()
 {
 	
 			// Enable the GPIO port that is used for the on-board LED.
@@ -71,6 +71,40 @@ void setup_IO(void)
 			GPIO_PORTF_PUR_R = 0x11;          // Pull up not needed for output       
 			GPIO_PORTF_DEN_R = 0x1F;          // Enable digital pins PF4-PF0   
 	
+		//I have to do this so that we don't start off with a bunch of random stuff going on our seven segment displays
+		//hours1 all off
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_0, 0xF);  // Set PB0 High
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_1, 0xF);  // Set PB1 High
+			
+		//hours2 all off
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xf);  // Set PA3 High
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_4, 0xf);  // Set PA4 High
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_5, 0xf);  // Set PA5 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, 0xf);  // Set PE1 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_2, 0xf);  // Set PE2 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0xf);  // Set PE5 High
+		
+		//min1 all off
+		GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_5, 0xf);  // Set PC5 High
+		GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_6, 0xf);  // Set PC6 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3, 0xf);  // Set PE3 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_6, 0xf);  // Set PD6 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_7, 0xf);  // Set PD7 High
+	  GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_4, 0xf);  // Set PC4 High
+		GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7, 0xf);  // Set PC7 High
+		
+		//min2 all off
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_0, 0xf);  // Set PD0 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_1, 0xf);  // Set PD1 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2, 0xf);  // Set PD2 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_3, 0xf);  // Set PD3 High
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_4, 0xf);  // Set PB4 High
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_2, 0xf);  // Set PA2 High
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, 0xf);  // Set PB5 High
+			
+			
+	
 }
 
 void pmindicatoroff(void)
@@ -87,9 +121,6 @@ void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmho
 {
 		int SW1;  
 		int SW2;  
-	
-		printf("You can change some stuff by pressing switches 1 and 2\n Press switch 2 to turn");
-		printf("on a purple LED \n Press switch 1 to turn on green LED \n Press both to turn off the LEDs and exit GPIO\n\n");	
 	
 		SW1 = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4); // set x equal to the output of button SW1
 		SW2 = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_0); // set x equal to the output of button SW2
