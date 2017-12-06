@@ -36,7 +36,6 @@ int  main(void)
 	
 	int pm=0;
 	int alarmpm=0;
-	int i;
 	
 		while (1)
 			{
@@ -89,7 +88,7 @@ int  main(void)
 						AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
 		}
 }
-
+}
 void SetupHardware(void)  
 {
 	UartSetup();	//Sets up Uart communication using RealTerm
@@ -98,7 +97,6 @@ void SetupHardware(void)
 	//setupPWM();
 	
 }
-
 
 
 
