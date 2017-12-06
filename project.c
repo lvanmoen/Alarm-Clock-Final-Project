@@ -44,12 +44,12 @@ int  main(void)
 	
 				// I am calling the functions that will set the seven segment displays to the correct 
 				// outputs so it looks like we have a clock. 
-				printhours1(hour1);
-				printhours2(hour2);
-				printmin1(min1);
-				printmin2(min2);
+				//printhours1(hour1);
+				//printhours2(hour2);
+				//printmin1(min1);
+				//printmin2(min2);
 	
-				CheckStatus(hour1, hour2, min2, min1, alarmhour1, alarmhour2, alarmmin1, alarmmin2,alarmpm);
+				//CheckStatus(hour1, hour2, min2, min1, alarmhour1, alarmhour2, alarmmin1, alarmmin2,alarmpm);
 
 				// This is the main clock function, so basically, this is the
 				// part of the code that is keeping track of the time. 
@@ -76,20 +76,17 @@ int  main(void)
 					
 					pm = pm||0;
 					if(pm==1){
-						pmindicatoron();
+					//	pmindicatoron();
 					}
 					if(pm==0){
-						pmindicatoroff();
+				//		pmindicatoroff();
 					}	
 					}
 				
 				if(hour1==alarmhour1 && hour2 == alarmhour2 && min1==alarmmin1 && alarmmin2==min2 && alarmpm == pm)
 					{
-						AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
+					//	AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
 					}
-		
-		
-					
 		}
 }
 
@@ -98,7 +95,7 @@ void SetupHardware(void)
 	UartSetup();	//Sets up Uart communication using RealTerm
 	setup_IO();		//Function that unlocks certain pins that are needed.
 	SetupSystickDN();	//Sets up the timers and hardware to use systick
-	setupPWM();
+	//setupPWM();
 	
 }
 

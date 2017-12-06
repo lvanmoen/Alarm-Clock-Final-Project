@@ -4,7 +4,7 @@
 #include "tm4c123gh6pm.h"	//Header file accesses registers in TMC123 microcontroller
 
 
-void setup_IO(void)
+void setup_IO()
 {
 	
 			// Enable the GPIO port that is used for the on-board LED.
@@ -71,7 +71,7 @@ void setup_IO(void)
 			GPIO_PORTF_PUR_R = 0x11;          // Pull up not needed for output       
 			GPIO_PORTF_DEN_R = 0x1F;          // Enable digital pins PF4-PF0   
 	
-	
+		//I have to do this so that we don't start off with a bunch of random stuff going on our seven segment displays
 		//hours1 all off
 		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_0, 0xF);  // Set PB0 High
 		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_1, 0xF);  // Set PB1 High
