@@ -71,6 +71,40 @@ void setup_IO(void)
 			GPIO_PORTF_PUR_R = 0x11;          // Pull up not needed for output       
 			GPIO_PORTF_DEN_R = 0x1F;          // Enable digital pins PF4-PF0   
 	
+	
+		//hours1 all off
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_0, 0xF);  // Set PB0 High
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_1, 0xF);  // Set PB1 High
+			
+		//hours2 all off
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_3, 0xf);  // Set PA3 High
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_4, 0xf);  // Set PA4 High
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_5, 0xf);  // Set PA5 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, 0xf);  // Set PE1 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_2, 0xf);  // Set PE2 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_4, 0xf);  // Set PE4 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0xf);  // Set PE5 High
+		
+		//min1 all off
+		GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_5, 0xf);  // Set PC5 High
+		GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_6, 0xf);  // Set PC6 High
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_3, 0xf);  // Set PE3 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_6, 0xf);  // Set PD6 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_7, 0xf);  // Set PD7 High
+	  GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_4, 0xf);  // Set PC4 High
+		GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7, 0xf);  // Set PC7 High
+		
+		//min2 all off
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_0, 0x0);  // Set PD0 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_1, 0x0);  // Set PD1 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2, 0x0);  // Set PD2 High
+		GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_3, 0x0);  // Set PD3 High
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_4, 0x0);  // Set PB4 High
+		GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_2, 0x0);  // Set PA2 High
+		GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, 0x0);  // Set PB5 High
+			
+			
+	
 }
 
 void pmindicatoroff(void)
