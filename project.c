@@ -87,9 +87,7 @@ int  main(void)
 					{
 						AlarmBuzzGo(alarmhour1, alarmhour2, alarmmin1, alarmmin2);
 					}
-		
-		
-					
+	
 		}
 }
 
