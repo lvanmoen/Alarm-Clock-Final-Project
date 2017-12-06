@@ -35,7 +35,7 @@ void printhours2(int ctemp2)
 		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_5, 0x0);  // Set PE5 Low
 		
 		//set it high
-		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, 0xf);  // Set PE1 Low
+		GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_1, 0xf);  // Set PE1 High
 		break;	
 		
 	case '1':

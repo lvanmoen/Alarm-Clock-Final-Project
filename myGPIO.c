@@ -122,9 +122,6 @@ void CheckStatus(int hours1, int hours2, int minutes2, int minutes1, int alarmho
 		int SW1;  
 		int SW2;  
 	
-		printf("You can change some stuff by pressing switches 1 and 2\n Press switch 2 to turn");
-		printf("on a purple LED \n Press switch 1 to turn on green LED \n Press both to turn off the LEDs and exit GPIO\n\n");	
-	
 		SW1 = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_4); // set x equal to the output of button SW1
 		SW2 = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_0); // set x equal to the output of button SW2
 		 

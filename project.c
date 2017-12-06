@@ -24,8 +24,8 @@ int  main(void)
 	
 	SetupHardware();
 
-	int hour1 =0;
-	int hour2 =1;
+	int hour1 =1;
+	int hour2 =2;
 	int min1=0;
 	int min2=0;
 
@@ -49,7 +49,7 @@ int  main(void)
 				printmin1(min1);
 				printmin2(min2);
 	
-				//CheckStatus(hour1, hour2, min2, min1, alarmhour1, alarmhour2, alarmmin1, alarmmin2,alarmpm);
+				CheckStatus(hour1, hour2, min2, min1, alarmhour1, alarmhour2, alarmmin1, alarmmin2,alarmpm);
 
 				// This is the main clock function, so basically, this is the
 				// part of the code that is keeping track of the time. 
@@ -74,12 +74,13 @@ int  main(void)
 					hour2=1;
 					hour1=0;
 					
-					pm = pm||0;
 					if(pm==1){
-					//	pmindicatoron();
+						pmindicatoron();
+						pm=0;
 					}
-					if(pm==0){
-				//		pmindicatoroff();
+					else{
+						pmindicatoroff();
+						pm=1;
 					}	
 					}
 				
